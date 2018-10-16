@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <testapi_settings>
+            <general>
+                <enabled>1</enabled>
+                <discount>0</discount>
+                <api_url><![CDATA[http://magento-test.demo.noveogroup.com/api.php]]></api_url>
+                <cron_schedule><![CDATA[0 * * * * *]]></cron_schedule>
+            </general>
+        </testapi_settings>
+    </default>
+</config>

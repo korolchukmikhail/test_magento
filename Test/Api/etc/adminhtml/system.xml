@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="testapi" translate="label" sortOrder="10">
+            <label>Test API</label>
+        </tab>
+        <section id="testapi_settings" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <class>separator-top</class>
+            <label>Settings</label>
+            <tab>testapi</tab>
+            <resource>Test_Api::testapi_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0"
+                   showInStore="0">
+                <label>General Configuration</label>
+
+                <field id="enabled" translate="label comment" type="select" sortOrder="1" showInDefault="1"
+                       showInWebsite="0"
+                       showInStore="0">
+                    <label>Discount Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="api_url" translate="label comment" type="text" sortOrder="2" showInDefault="1"
+                       showInWebsite="0"
+                       showInStore="0">
+                    <label>API Url</label>
+                    <comment>Source data of discount.</comment>
+                </field>
+
+                <field id="cron_schedule" translate="label comment" type="text" sortOrder="3" showInDefault="1"
+                       showInWebsite="0"
+                       showInStore="0">
+                    <label>CRON Schedule</label>
+                    <comment>How often we getting data from the source.</comment>
+                </field>
+
+                <field id="discount" translate="label comment" type="text" sortOrder="4" showInDefault="1"
+                       showInWebsite="0"
+                       showInStore="0">
+                    <label>Current discount</label>
+                    <comment>Current value of discount. This value is updated automatically by cron, or you can update
+                        this value manually.
+                    </comment>
+                </field>
+
+                <field id="get_discount" translate="label comment" type="button" sortOrder="5" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <frontend_model>Test\Api\Block\System\Config\Discount</frontend_model>
+                    <label>Get the Discount Now</label>
+                </field>
+
+                <field id="time_from" translate="label comment" type="time" sortOrder="6" showInDefault="1"
+                       showInWebsite="0"
+                       showInStore="0">
+                    <label>Apply discount from</label>
+                    <comment>Time start apply discount.</comment>
+                </field>
+
+                <field id="time_till" translate="label comment" type="time" sortOrder="7" showInDefault="1"
+                       showInWebsite="0"
+                       showInStore="0">
+                    <label>Apply discount till</label>
+                    <comment>Time end apply discount.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

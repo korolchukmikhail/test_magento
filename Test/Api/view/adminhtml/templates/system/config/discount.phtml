@@ -1,0 +1,49 @@
+<script>
+    require([
+        'jquery',
+        'prototype'
+    ], function (jQuery) {
+
+        var discountSpan = jQuery('#discount_span');
+
+        jQuery('#get_test_discount').click(function () {
+            var params = {};
+            new Ajax.Request('<?php echo $block->getAjaxUrl() ?>', {
+                parameters: params,
+                loaderArea: false,
+                asynchronous: true,
+                onCreate: function () {
+                    discountSpan.find('.received').hide();
+                    discountSpan.find('.processing').show();
+                },
+                onSuccess: function (response) {
+                    discountSpan.find('.processing').hide();
+
+                    var resultText = '';
+                    if (response.status > 200) {
+                        resultText = response.statusText;
+                    } else {
+                        resultText = 'Success';
+                        discountSpan.find('.received').show();
+                    }
+                    jQuery('#discount_message_span').text(resultText);
+
+                    var json = response.responseJSON;
+                    if (json.success && typeof json.message !== 'undefined') {
+                        jQuery('#testapi_settings_general_discount').val(json.message);
+                    }
+                }
+            });
+        });
+
+    });
+</script>
+
+<?php echo $block->getButtonHtml() ?>
+<span class="collect-indicator" id="discount_span">
+    <img class="processing" hidden="hidden" alt="Getting" style="margin:0 5px"
+         src="<?php echo $block->getViewFileUrl( 'images/process_spinner.gif' ) ?>"/>
+    <img class="received" hidden="hidden" alt="Received" style="margin:-3px 5px"
+         src="<?php echo $block->getViewFileUrl( 'images/rule_component_apply.gif' ) ?>"/>
+    <span id="discount_message_span"></span>
+</span>
