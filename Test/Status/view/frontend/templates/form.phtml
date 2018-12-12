@@ -1,0 +1,11 @@
+<?php
+/* @var $block Test_Status_Block_Customer_Status */
+?>
+<form method="post" action="<?= $block->getFormAction() ?>">
+    <?php echo $this->getBlockHtml( 'formkey' ) ?>
+    <label>
+        Status:
+        <input type="text" name="status" value="<?= $block->getStatus() ?>">
+    </label>
+    <input type="submit" name="save">
+</form>

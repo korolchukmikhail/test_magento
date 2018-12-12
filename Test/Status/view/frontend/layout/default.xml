@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<page>
+    <body>
+        <referenceBlock name="header.links">
+            <block class="Test\Status\Block\Customer\Status" name="test.status" before="customer"
+                   template="Test_Status::status.phtml" cacheable="false"/>
+        </referenceBlock>
+    </body>
+</page>
