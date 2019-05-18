@@ -1,0 +1,16 @@
+.bundle_tooltip{
+    display: inline-block;
+}
+
+.bundle_tooltip_icon{
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    float: left;
+    margin: 0 5px;
+    position: relative;
+}
+
+.bundle_tooltip_content{
+    display: none;
+}

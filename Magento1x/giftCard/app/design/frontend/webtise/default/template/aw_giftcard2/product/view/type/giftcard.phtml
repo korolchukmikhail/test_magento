@@ -1,0 +1,343 @@
+<?php $_product = $this->getProduct(); ?>
+<?php //echo $this->getChildHtml('product_type_availability') ?>
+<?php //echo $this->getChildHtml('product_type_data_extra') ?>
+
+<div class="block background-pink voucher-header" xmlns="http://www.w3.org/1999/html">
+    <div class="img">
+        <img src="<?php echo $this->getSkinUrl('aw_giftcard2/images/letter_heart.gif'); ?>">
+    </div>
+    <div class="img gift-voucher-img">
+        <img src="<?php echo $this->getSkinUrl('aw_giftcard2/images/gift_voucher.png'); ?>">
+    </div>
+    <div class="text1">
+        <span><?php echo $this->__('Give your bestie the gift of sassy stompers.') ?></span>
+    </div>
+    <div class="text2">
+        <span><?php echo $this->__('We’ll send them a digital gift card that they can redeem anytime in the next year!') ?></span>
+    </div>
+    <?php if ($this->canRenderDescription()): ?>
+        <div class="aw-gc2-product-form-description"><?php echo $this->getDescription() ?></div>
+    <?php endif; ?>
+</div>
+<?php if ($this->canRenderOptions()): ?>
+    <div class="block voucher-step1">
+        <div class="name-step">
+            <span><?php echo $this->__('step 1') ?></span>
+        </div>
+        <div class="header-step">
+            <span><?php echo $this->__('Voucher Style') ?></span>
+        </div>
+        <?php if ($this->isAllowDesignSelect()): ?>
+            <div class="fieldset">
+                <div class="field required aw-gc2-product-form-options__field-full-width">
+                    <div class="control aw-gc2-product-form-options__template-options" data-highlight="aw_gc2_template">
+                        <?php $index = 1; ?>
+                        <?php foreach ($this->getTemplateOptions() as $value): ?>
+                            <a href="#"
+                                <?php if ($value['template'] == $this->getEmailTemplate()): ?>
+                                    class="aw-gc2-product-form-options__template-option selected"
+                                <?php else: ?>
+                                    class="aw-gc2-product-form-options__template-option"
+                                <?php endif; ?>
+                               id="aw-gc2-product-form-options__template-option-<?php echo $index++ ?>"
+                               onclick="templateSelect(this.id, '<?php echo $value['template']; ?>'); return false;"
+                            >
+                                <?php if (isset($value['image_url'])): ?>
+                                    <img class="aw-gc2-product-form-options__template-image"
+                                         src="<?php echo $value['image_url']; ?>" alt=""/>
+                                <?php else: ?>
+                                    <span
+                                        class="aw-gc2-product-form-options__template-name"><?php echo $value['template_name']; ?></span>
+                                <?php endif; ?>
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
+                    <input type="hidden" id="aw_gc2_template" name="aw_gc2_template"
+                           value="<?php echo $this->getEmailTemplate() ?>" class="required-entry">
+                </div>
+            </div>
+            <script type="text/javascript">
+                //<![CDATA[
+                var templateSelect = function (elementId, templateValue) {
+                    $$('.aw-gc2-product-form-options__template-option').each(function (el) {
+                        el.removeClassName('selected');
+                    });
+                    $(elementId).addClassName('selected');
+                    $('aw_gc2_template').value = templateValue;
+                };
+                //]]>
+            </script>
+        <?php endif; ?>
+
+        <?php if ($this->isSingleDesign()): ?>
+            <input type="hidden" id="aw_gc2_template" name="aw_gc2_template"
+                   value="<?php echo $this->getTemplateValue(); ?>">
+        <?php endif; ?>
+    </div>
+    <div class="block background-pink voucher-step2">
+        <div class="name-step">
+            <span><?php echo $this->__('step 2') ?></span>
+        </div>
+        <div class="header-step">
+            <span><?php echo $this->__('Voucher Value') ?></span>
+        </div>
+        <?php if ($this->isFixedAmount()): ?>
+            <?php $_amount = $this->getAmountOptions();
+            $_amount = array_shift($_amount); ?>
+            <div class="price-box">
+            <span class="regular-price">
+                <span class="price"
+                      id="product-price-<?php echo $_product->getId() ?><?php echo $this->getIdSuffix() ?>">
+                    <?php echo Mage::helper('core')->currency($_amount, true, false); ?>
+                </span>
+            </span>
+            </div>
+            <script type="text/javascript">
+                //<![CDATA[
+                optionsPrice.productPrice = "<?php echo $_amount;?>";
+                //]]>
+            </script>
+            <?php echo $this->getPriceHtml($_product); ?>
+        <?php endif; ?>
+        <div class="aw-gc2-product-form-options" id="aw-gc2-product-form-options">
+            <?php if ($this->isFixedAmount()): ?>
+                <input type="hidden" name="aw_gc2_amount" value="<?php echo $this->getFixedAmount() ?>"/>
+            <?php else: ?>
+                <div class="form-list fieldset">
+                    <div class="form-list">
+                        <?php if (!$this->isCustomAmountOnly()): ?>
+                            <div class="aw-gc2-product-form-options__amount">
+                                <div class="amount-options input-box" id="aw_gc2_amount">
+                                    <?php foreach ($this->getAmountOptions() as $value): ?>
+                                        <input type="radio" id="amount_<?php echo (int)$value; ?>"
+                                               value="<?php echo $value; ?>" name="aw_gc2_amount"
+                                               class="validate-one-required-by-name aw-gc2-amount-entry">
+                                        <label
+                                            for="amount_<?php echo (int)$value; ?>"><?php echo Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol() . (int)$value; ?></label>
+                                    <?php endforeach; ?>
+                                    <?php if ($this->isAllowOpenAmount()): ?>
+                                        <label for="amount_custom"><?php echo $this->__('Other Amount...') ?></label>
+                                        <input type="radio" id="amount_custom" value="custom" name="aw_gc2_amount"
+                                               class="validate-one-required-by-name aw-gc2-amount-entry">
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        <?php else: ?>
+                            <input type="hidden" name="aw_gc2_amount" value="custom"/>
+                        <?php endif; ?>
+                        <div class="aw-gc2-product-form-options__amount">
+                            <?php if ($this->isAllowOpenAmount()): ?>
+                                <div class="amount-custom input-box"
+                                     <?php if ($this->getAmount() != 'custom' && !$this->isCustomAmountOnly()): ?>style="display:none;"<?php endif; ?>>
+                                    <input type="text" name="aw_gc2_custom_amount" id="aw_gc2_custom_amount"
+                                           value="<?php echo $this->getCustomAmount() ?>"
+                                           class="validate-number required-entry input-text aw-gc2-amount-entry aw-gc2-min-amount aw-gc2-max-amount"
+                                           placeholder="(<?php echo Mage::helper('core')->currency($this->getOpenAmountMin(), true, false) ?>-<?php echo Mage::helper('core')->currency($this->getOpenAmountMax(), true, false) ?>)"
+                                    />
+                                </div>
+                                <script type="text/javascript">
+                                    //<![CDATA[
+                                    if ($('aw_gc2_amount') !== null) {
+                                        Event.observe($$('#aw_gc2_amount input'), 'change', function () {
+                                            if ($('aw_gc2_amount').value == 'custom') {
+                                                $$('#aw-gc2-product-form-options .amount-custom').first().show();
+                                            } else {
+                                                $$('#aw-gc2-product-form-options .amount-custom').first().hide();
+                                            }
+                                        });
+                                    }
+                                    var openAmounts = {
+                                        min:<?php echo $this->getOpenAmountMin() ?>,
+                                        max:<?php echo $this->getOpenAmountMax() ?>
+                                    };
+                                    Validation.add('aw-gc2-min-amount', '<?php echo $this->__('Entered amount is too low') ?>', function (v) {
+                                        var amountValue = parseFloat(v);
+                                        return Validation.get('IsEmpty').test(v) || amountValue >= openAmounts.min;
+                                    });
+                                    Validation.add('aw-gc2-max-amount', '<?php echo $this->__('Entered amount is too high') ?>', function (v) {
+                                        var amountValue = parseFloat(v);
+                                        return Validation.get('IsEmpty').test(v) || amountValue <= openAmounts.max;
+                                    });
+                                    //]]>
+                                </script>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+    <div class="block voucher-step3">
+        <div class="name-step">
+            <span><?php echo $this->__('step 3') ?></span>
+        </div>
+        <div class="header-step">
+            <span><?php echo $this->__('Voucher Details') ?></span>
+        </div>
+        <div class="fieldset">
+            <div class="form-list email fromto">
+                <div class="field required aw-gc2-product-form-options__fromto">
+                    <div class="voucher-legend"><span><?php echo $this->__('To') ?></span></div>
+
+                    <div class="voucher-field">
+                        <label class="label fromto required" for="aw_gc2_recipient_name">
+                            <span><?php echo $this->__('Recipient Name') ?>&nbsp;<em>*</em></span>
+                            <input type="text" name="aw_gc2_recipient_name"
+                                   class="required-entry input-text margin-bottom-25"
+                                   value="<?php echo $this->getRecipientName() ?>"/>
+                        </label>
+                    </div>
+                    <?php if ($this->allowedEmail()): ?>
+                        <div class="voucher-field">
+                            <label class="label fromto required" for="aw_gc2_recipient_email">
+                                <span><?php echo $this->__('Recipient Email') ?>&nbsp;<em>*</em></span>
+                                <input type="text" name="aw_gc2_recipient_email"
+                                       class="required-entry input-text validate-email"
+                                       value="<?php echo $this->getRecipientEmail() ?>"/>
+                            </label>
+                        </div>
+                    <?php endif; ?>
+                </div>
+
+                <div class="field required aw-gc2-product-form-options__fromto">
+                    <div class="voucher-legend"><span><?php echo $this->__('From') ?></span></div>
+
+                    <div class="voucher-field">
+                        <label class="label fromto required" for="aw_gc2_sender_name">
+                            <span><?php echo $this->__('Sender Name') ?>&nbsp;<em>*</em></span>
+                            <input type="text" name="aw_gc2_sender_name"
+                                   class="required-entry input-text margin-bottom-25"
+                                   value="<?php echo $this->getSenderName() ?>"/>
+                        </label>
+                    </div>
+                    <?php if ($this->allowedEmail()): ?>
+                        <div class="voucher-field">
+                            <label class="label fromto required" for="aw_gc2_sender_email">
+                                <span><?php echo $this->__('Sender Email') ?>&nbsp;<em>*</em></span>
+                                <input type="text" name="aw_gc2_sender_email"
+                                       class="required-entry input-text validate-email"
+                                       value="<?php echo $this->getSenderEmail() ?>"/>
+                            </label>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="block background-pink voucher-step4">
+        <div class="name-step">
+            <span><?php echo $this->__('step 4') ?></span>
+        </div>
+        <div class="header-step">
+            <span><?php echo $this->__('Personalise Your Gift Card') ?></span>
+        </div>
+        <div class="fieldset">
+
+            <?php if ($this->isAllowMessage()): ?>
+                <div class="form-list email body aw-gc2-product-form-options__email-content">
+                    <div class="field aw-gc2-product-form-options__field-full-width">
+                        <label class="label" for="aw_gc2_headline">
+                            <span><?php echo $this->__('Headline') ?></span>
+                            <input type="text" name="aw_gc2_headline" class="input-text"
+                                   value="<?php echo $this->getHeadline() ?>"/>
+                        </label>
+                    </div>
+
+                    <div class="field aw-gc2-product-form-options__field-full-width">
+                        <label class="label" for="aw_gc2_message">
+                            <span><?php echo $this->__('Enter your personal message:') ?></span>
+                        </label>
+
+                        <div class="input-box message">
+                            <textarea name="aw_gc2_message"
+                                      placeholder="<?php echo $this->__('Max 1000 characters') ?>"
+                                      class="input-text" cols="5" rows="5"><?php echo $this->getMessage() ?></textarea>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+            <div class="form-list">
+                <div class="field aw-gc2-product-form-options__field-full-width" >
+                    <label>
+                        <span><?php echo $this->__('Delivery date:') ?></span>
+                        <input type="text" class="input-text form-control" id="aw_gc2_delivery_date" name="delivery_date">
+                        <span class="bootstrap" id="datepicker-wrapper" style="display: block"></span>
+                    </label>
+                </div>
+                <script>
+                    //<![CDATA[
+                    document.observe('dom:loaded', function() {
+                        jQuery_3_1_1('#aw_gc2_delivery_date').datepicker({
+                            'autoclose' : true,
+                            'format' : 'dd-mm-yyyy',
+                            'container' : '#datepicker-wrapper',
+                            'zIndexOffset' : 10000,
+                            'startDate' : new Date()
+                        });
+                        jQuery_3_1_1('#aw_gc2_delivery_date').on('hide', function (e) { e.preventDefault(); });
+                    });
+                    //]]>
+                </script>
+            </div>
+
+            <div class="additional-info">
+                <span>We can send your gift voucher on any date within the next 3 months.<br>
+                Please note, the gift voucher will expire 365 days after the delivery date.</span>
+            </div>
+
+            <?php if ($this->isAllowPreview()): ?>
+                <div class="aw-gc-product-form-options__preview">
+                    <button class="button" onclick="AWGC2Preview.previewClick();return false;">
+                        <span><?php echo $this->__('Preview') ?></span>
+                    </button>
+                </div>
+                <script type="text/javascript">
+                    //<![CDATA[
+                    var config = {
+                        formSelector: 'product_addtocart_form',
+                        popupOverlaySelector: 'aw-gc2-product-preview-popup_overlay',
+                        popupProgressSelector: 'aw-gc2-product-preview-popup_progress',
+                        popupWindowSelector: 'aw-gc2-product-preview-popup_window',
+                        url: '<?php echo $this->getUrl('awgiftcard2/ajax/preview',
+                            array('_secure' => Mage::app()->getStore(true)->isCurrentlySecure())
+                        ) ?>'
+                    };
+                    var AWGC2Preview = new AWGC2PreviewPopup(config);
+                    //]]>
+                </script>
+            <?php endif; ?>
+            <?php $buttonTitle = $this->__('Add to Basket'); ?>
+            <div class="add-to-cart-button">
+                <button type="button" title="<?php echo $buttonTitle ?>" id="product-addtocart-button"
+                        class="button"
+                        onclick="productAddToCartForm.submit(this)">
+                    <span><?php echo $buttonTitle ?><img src="<?php echo $this->getSkinUrl('aw_giftcard2/images/arrow_basket.png'); ?>"></span>
+                </button>
+            </div>
+        </div>
+        <div class="system-note">
+            <span>*Required fields</span>
+        </div>
+    </div>
+<?php else: ?>
+    <?php echo $this->getPriceHtml($_product); ?>
+<?php endif; ?>
+
+<div id="aw-gc2-product-preview-popup_window" style="display: none;">
+    <div id="aw-gc2-product-preview-popup_header">
+        <span id="aw-gc2-product-preview-popup_title"><?php echo $this->__('Gift Card Preview') ?></span>
+        <img id="aw-gc2-product-preview-popup_close_btn" onclick="AWGC2Preview.hidePopup();return false;"
+             src="<?php echo $this->getSkinUrl('aw_giftcard2/images/close_label.gif'); ?>">
+    </div>
+    <div id="aw-gc2-product-preview-popup_content">
+    </div>
+</div>
+<div id="aw-gc2-product-preview-popup_progress" style="display: none;">
+    <img src="<?php echo $this->getSkinUrl('aw_giftcard2/images/al.gif'); ?>" alt=""/>
+    <p><?php echo $this->__('Please wait...') ?></p>
+</div>
+<div id="aw-gc2-product-preview-popup_overlay" style="display: none;">
+</div>
+
+

@@ -1,0 +1,31 @@
+<?php
+$_product = $this->getProduct();
+$_id = $_product->getId();
+?>
+<?php if ($_product->getCanShowPrice() !== false):?>
+    <div class="price-box">
+        <?php if ($_product->getMinPrice() && $_product->getMaxPrice() && ($_product->getMinPrice() == $_product->getMaxPrice())): ?>
+            <span class="price" id="product-price-<?php echo $_id ?><?php echo $this->getIdSuffix() ?>">
+                <?php echo Mage::helper('core')->currency($_product->getMinPrice(), true, false) ?>
+            </span>
+        <?php elseif ($_product->getMinPrice() && $_product->getMinPrice() != 0): ?>
+            <p class="price-from">
+            <span class="price-label">
+                <?php echo $this->__('From:');?>
+            </span>
+            <span class="price" id="min-product-price-<?php echo $_id ?><?php echo $this->getIdSuffix() ?>">
+                <?php echo Mage::helper('core')->currency($_product->getMinPrice(), true,false) ?>
+            </span>
+            </p>
+
+            <p class="price-to">
+            <span class="price-label">
+                <?php echo $this->__('To:');?>
+            </span>
+            <span class="price" id="max-product-price-<?php echo $_id ?><?php echo $this->getIdSuffix() ?>">
+                <?php echo Mage::helper('core')->currency($_product->getMaxPrice(), true, false);?>
+            </span>
+            </p>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>

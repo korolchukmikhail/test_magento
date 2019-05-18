@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <catalog_product_view>
+        <reference name="head">
+            <action method="addJs"><script>onilab/tooltipoption/jquery-1.12.0.min.js</script></action>
+            <action method="addJs"><script>onilab/tooltipoption/jquery.tooltipster.min.js</script></action>
+            <action method="addJs"><script>onilab/tooltipoption/tooltip.js</script></action>
+            <action method="addCss"><stylesheet>css/onilab/tooltipoption/tooltipster.css</stylesheet></action>
+            <action method="addCss"><stylesheet>css/onilab/tooltipoption/tooltipster-light.css</stylesheet></action>
+            <action method="addCss"><stylesheet>css/onilab/tooltipoption/tooltipoption.css</stylesheet></action>
+        </reference>
+    </catalog_product_view>
+</layout>

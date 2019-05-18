@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Onilab_TooltipOption>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends />
+        </Onilab_TooltipOption>
+    </modules>
+</config>

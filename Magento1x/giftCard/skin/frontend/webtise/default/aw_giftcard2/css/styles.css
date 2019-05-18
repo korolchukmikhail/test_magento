@@ -1,0 +1,314 @@
+.aw-gc2-product-form-options .form-list .field {
+    float: none;
+}
+
+.aw-gc2-product-form-options__amount .amount-custom {
+    margin-top: 15px;
+}
+
+.aw-gc2-product-form-options__template-options {
+    overflow: hidden;
+}
+
+.aw-gc2-product-form-options__template-option {
+    margin: 0 17px;
+    overflow: hidden;
+    text-align: center;
+    width: 210px;
+    height: 148px;
+    display: inline-block;
+}
+
+.aw-gc2-product-form-options__template-image {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    margin: auto;
+}
+
+.aw-gc2-product-form-options__template-option.selected{
+    width: 220px;
+    height: 158px;
+    text-decoration: none;
+}
+
+.aw-gc2-product-form-options__template-name, .aw-gc-product-form-options__template-name:hover {
+    color: #8f8f8f;
+}
+.aw-gc2-product-form-options__template-name {
+    background: #f0f0f0 none repeat scroll 0 0;
+    display: block;
+    line-height: 75px;
+}
+
+#aw-gc2-product-form-options .field {
+    margin-bottom: 20px;
+}
+
+.aw-gc2-product-form-options__fromto {
+}
+
+.aw-gc2-product-form-options__email {
+    margin-top: 15px;
+}
+
+#aw-giftcard2-info-block td strong {
+    margin-left: 30px;
+}
+
+form#aw_giftcard2-form ul.form-list li div.input-box {
+    float: right;
+    padding-bottom: 10px;
+    width: auto;
+}
+
+form#aw_giftcard2-form ul.form-list li div.input-box label {
+    float: left;
+    padding-right: 5px;
+}
+
+form#aw_giftcard2-form ul.form-list li div.input-box input {
+    float: right;
+}
+
+form#aw_giftcard2-form ul.form-list li div.input-box label.required em {
+    position: static;
+}
+
+.aw_giftcard2-btn-remove {
+    float: left;
+    margin-left: 15px;
+    padding-top: 3px;
+}
+.aw_giftcard2-total-description {
+    padding-top: 1px;
+}
+
+#aw-gc2-product-preview-popup_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: #000000;
+    opacity: 0.5;
+}
+
+#aw-gc2-product-preview-popup_progress {
+    border: 1px #999999 solid;
+    position: fixed;
+    text-align: center;
+    padding: 10px;
+    background-color: #ffffff;
+    z-index: 10000;
+    color: black;
+    overflow:  auto;
+    min-height: 50px;
+    min-width: 240px;
+    top: 50%;
+    left: 50%;
+    margin-left: -130px;
+    margin-top: -25px;
+    opacity: 1.0;
+}
+
+#aw-gc2-product-preview-popup_window {
+    position: fixed;
+    overflow: hidden;
+    z-index: 99999;
+    background: #ffffff;
+    top: 0;
+    left: 0;
+    border: solid 1px;
+    border-radius: 6px;
+    padding: 10px;
+    opacity: 1;
+}
+
+#aw-gc2-product-preview-popup_title {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#aw-gc2-product-preview-popup_close_btn {
+    cursor: pointer;
+    float: right;
+}
+
+#aw-gc2-product-preview-popup_content {
+    overflow-y: scroll;
+    height: 455px;
+}
+
+#aw-gc2-product-preview-popup_content .body-wrap {
+    padding: 0 !important;
+}
+
+.product-essential .product-shop {
+    width: 100%;
+    left: 0;
+    float: none;
+}
+
+.block {
+    text-align: center;
+    font-family: "Karla Regular", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.block.voucher-header {
+    padding: 65px 0 38px 0;
+}
+
+.block.background-pink {
+    background-color: #ffeeee;
+}
+
+.aw-gc2-product-form-options__amount input {
+    visibility: hidden;
+    display: none;
+}
+
+.aw-gc2-product-form-options__amount input:checked + label {
+    width: 61px;
+    height: 36px;
+    line-height: 34px;
+    font-style: normal;
+}
+
+.block .fieldset {
+    border: none;
+    margin: 0;
+    padding: 25px 0 0 0;
+}
+
+.amount-options label {
+    float: none;
+    width: 55px;
+    height: 30px;
+    display: inline-block;
+    background: white;
+    border: 1px solid;
+    margin: 0 9px;
+    line-height: 29px;
+    cursor: pointer;
+}
+
+.block .name-step span{
+    text-transform: uppercase;
+    font-size: 17px;
+    line-height: 25px;
+}
+
+.block .header-step span{
+    font-family: Conv_CircularStd-Bold, sans-serif;
+    text-decoration: underline;
+    font-size: 21px;
+    line-height: 25px;
+    letter-spacing: 0.4px;
+}
+
+.block .gift-voucher-img {
+    padding: 10px 0 20px 0;
+}
+
+.block.voucher-header .text1 span{
+    font-size: 25px;
+    line-height: 37.5px;
+    letter-spacing: 0.4px;
+}
+
+.block.voucher-header .text2{
+    font-size: 17px;
+    letter-spacing: 0.4px;
+}
+
+.aw-gc2-product-form-description{
+    padding-top: 20px;
+}
+
+.block.voucher-step1 {
+    padding: 50px 0 27px 0;
+}
+
+.block.voucher-step2 {
+    padding: 40px 0 40px 0;
+}
+
+.block.voucher-step3 {
+    padding: 40px 0 60px 0;
+}
+
+.block.voucher-step4 {
+    padding: 25px 0 15px 0;
+}
+
+.block.voucher-step3 .fieldset,
+.block.voucher-step4 .fieldset{
+    width: 507px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.block.voucher-step3 .fieldset .voucher-legend span{
+    text-transform: uppercase;
+    padding: 25px 0;
+    font-size: 21px;
+    line-height: 25px;
+    letter-spacing: 0.4px;
+}
+
+.block.voucher-step3 .fieldset div span,
+.block.voucher-step4 .fieldset div span{
+    display: block;
+    text-align: left;
+}
+
+.block.voucher-step3 .fieldset .voucher-field span{
+    font-size: 13px;
+    line-height: 25px;
+    letter-spacing: 0.4px;
+}
+
+.block.voucher-step3 .fieldset span em{
+    float: none;
+    color: black;
+}
+
+.block.voucher-step3 .fieldset label,
+.block.voucher-step4 .fieldset label{
+    float: none;
+    overflow: visible;
+}
+
+.block.voucher-step3 .margin-bottom-25 {
+    margin-bottom: 25px;
+}
+
+.block.voucher-step4 button {
+    width: 285px;
+    height: 50px;
+    margin: 15px auto;
+    background: black;
+}
+
+.block.voucher-step4 .fieldset button span {
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.block.voucher-step4 .datepicker table tr td.active.active,
+.block.voucher-step4 .datepicker table tr td.active:hover,
+.block.voucher-step4 .datepicker table tr td.active:hover.active,
+.block.voucher-step4 .datepicker table tr td.active:hover:hover {
+    background-color : #ffeeee;
+    background-image: none;
+    color: black;
+}
+
+.block.voucher-step4 .fieldset .datepicker div span {
+    text-align: center;
+}

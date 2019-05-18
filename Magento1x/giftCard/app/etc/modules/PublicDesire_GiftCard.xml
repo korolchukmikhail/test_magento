@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <PublicDesire_GiftCard>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <AW_Giftcard2 />
+            </depends>
+        </PublicDesire_GiftCard>
+    </modules>
+</config>

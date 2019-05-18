@@ -1,0 +1,8 @@
+{
+	"name": "yireo/emailtester",
+    "version": "1.0.29",
+	"type": "magento-module",
+	"require": {
+		"magento-hackathon/magento-composer-installer": "*"
+	}
+}

@@ -1,0 +1,7 @@
+app/code/community/Yireo/EmailTester/ app/code/community/Yireo/EmailTester/
+app/design/adminhtml/default/default/layout/emailtester.xml app/design/adminhtml/default/default/layout/emailtester.xml
+app/design/adminhtml/default/default/template/emailtester app/design/adminhtml/default/default/template/emailtester
+app/etc/modules/Yireo_EmailTester.xml app/etc/modules/Yireo_EmailTester.xml
+skin/adminhtml/default/default/css/emailtester skin/adminhtml/default/default/css/emailtester
+skin/adminhtml/default/default/images/emailtester skin/adminhtml/default/default/images/emailtester
+skin/adminhtml/default/default/js/emailtester skin/adminhtml/default/default/js/emailtester

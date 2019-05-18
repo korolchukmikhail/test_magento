@@ -1,0 +1,371 @@
+<layout>
+    <default>
+        <reference name="catalog_product_price_template">
+            <action method="addPriceBlockType"><type>aw_giftcard2</type><block>catalog/product_price</block><template>aw_giftcard2/product/price.phtml</template></action>
+        </reference>
+    </default>
+    <PRODUCT_TYPE_aw_giftcard2 translate="label" module="aw_giftcard2">
+        <label>Catalog Product View (Gift Card)</label>
+        <reference name="root">
+            <action method="unsetChild"><name>breadcrumbs</name></action>
+        </reference>
+        <reference name="product.collateral">
+            <action method="unsetChild"><name>viewed_products</name></action>
+            <action method="unsetChild"><name>product.olapic</name></action>
+        </reference>
+        <reference name="head">
+            <action method="addCss">
+                <name>aw_giftcard2/css/styles.css</name>
+            </action>
+            <reference name="head">
+                <action method="addItem">
+                    <type>skin_css</type>
+                    <file>bootstrap_datepicker/css/bootstrap-datepicker.min.css</file></action>
+            </reference>
+            <action method="addJs">
+                <name>aw_giftcard2/preview.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>jquery/3.1.1/jquery.min.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>bootstrap/3.3.7/js/bootstrap.min.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>bootstrap_datepicker/js/bootstrap-datepicker.min.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>jquery/3.1.1/jquery.noConflicts.js</name>
+            </action>
+        </reference>
+        <reference name="product.info">
+            <action method="unsetChild"><name>media</name></action>
+            <action method="unsetChild"><name>right</name></action>
+            <action method="unsetChild"><name>upsell_products</name></action>
+            <action method="unsetChild"><name>product_additional_data</name></action>
+            <action method="unsetChild"><name>additional</name></action>
+            <action method="unsetChild"><name>product_options_wrapper</name></action>
+            <action method="unsetChild"><name>product_options_wrapper_bottom</name></action>
+            <action method="unsetChild"><name>rewardsReview</name></action>
+            <action method="unsetChild"><name>points</name></action>
+            <action method="unsetChild"><name>rewards_points</name></action>
+            <action method="unsetChild"><name>rewards_tag_points</name></action>
+            <action method="unsetChild"><name>upsell.top</name></action>
+            <action method="unsetChild"><name>product_details</name></action>
+            <action method="unsetChild"><name>colorSwatch</name></action>
+            <action method="unsetChild"><name>product_share</name></action>
+            <action method="unsetChild"><name>addto</name></action>
+            <action method="unsetChild"><name>addtocart</name></action>
+            <block type="aw_giftcard2/product_view_type_giftcard" name="product.info.giftcard" as="product_type_data" template="aw_giftcard2/product/view/type/giftcard.phtml">
+                <block type="core/text_list" name="product.info.giftcard.extra" as="product_type_data_extra" translate="label">
+                    <label>Product Extra Info</label>
+                </block>
+            </block>
+        </reference>
+    </PRODUCT_TYPE_aw_giftcard2>
+    <customer_account>
+        <reference name="head">
+            <action method="addCss">
+                <name>aw_giftcard2/css/styles.css</name>
+            </action>
+        </reference>
+        <reference name="customer_account_navigation">
+            <action method="addLink" translate="label" ifconfig="aw_giftcard2/general/enabled">
+                <name>aw_giftcard2</name>
+                <path>awgiftcard2/card</path>
+                <label>Gift Card</label>
+                <urlParams>
+                    <_secure>true</_secure>
+                </urlParams>
+            </action>
+        </reference>
+    </customer_account>
+    <awgiftcard2_card_index translate="label">
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+            <block type="aw_giftcard2/customer_giftcard" name="aw_giftcard2.customer.giftcard" template="aw_giftcard2/customer/giftcard.phtml"/>
+            <block type="customer/account_dashboard" name="customer.account.link.back" template="customer/account/link/back.phtml"/>
+        </reference>
+    </awgiftcard2_card_index>
+    <checkout_cart_index>
+        <reference name="head">
+            <action method="addCss">
+                <name>aw_giftcard2/css/styles.css</name>
+            </action>
+        </reference>
+        <reference name="checkout.cart">
+            <action method="addItemRender">
+                <type>aw_giftcard2</type>
+                <block>aw_giftcard2/checkout_cart_item_renderer</block>
+                <template>checkout/cart/item/default.phtml</template>
+            </action>
+        </reference>
+    </checkout_cart_index>
+    <checkout_onepage_index>
+        <reference name="head">
+            <action method="addCss">
+                <name>aw_giftcard2/css/styles.css</name>
+            </action>
+        </reference>
+    </checkout_onepage_index>
+    <checkout_onepage_review>
+        <reference name="root">
+            <action method="addItemRender">
+                <type>aw_giftcard2</type>
+                <block>aw_giftcard2/checkout_cart_item_renderer</block>
+                <template>checkout/onepage/review/item.phtml</template>
+            </action>
+        </reference>
+    </checkout_onepage_review>
+    <sales_order_view>
+        <reference name="order_items">
+            <action method="addItemRender">
+                <type>aw_giftcard2</type>
+                <block>aw_giftcard2/order_item_renderer</block>
+                <template>sales/order/items/renderer/default.phtml</template>
+            </action>
+            <reference name="order_totals">
+                <block type="aw_giftcard2/order_totals" name="aw_giftcard2.order.totals"/>
+            </reference>
+        </reference>
+    </sales_order_view>
+    <sales_order_print>
+        <reference name="sales.order.print">
+            <action method="addItemRender">
+                <type>aw_giftcard2</type>
+                <block>aw_giftcard2/order_item_renderer</block>
+                <template>sales/order/items/renderer/default.phtml</template>
+            </action>
+        </reference>
+        <reference name="order_totals">
+            <block type="aw_giftcard2/order_totals" name="aw_giftcard2.order.totals"/>
+        </reference>
+    </sales_order_print>
+    <sales_order_invoice>
+        <reference name="invoice_items">
+            <action method="addItemRender">
+                <type>aw_giftcard2</type>
+                <block>aw_giftcard2/order_item_renderer</block>
+                <template>sales/order/invoice/items/renderer/default.phtml</template>
+            </action>
+        </reference>
+        <reference name="invoice_totals">
+            <block type="aw_giftcard2/order_totals" name="aw_giftcard2.order.totals"/>
+        </reference>
+    </sales_order_invoice>
+    <sales_order_printinvoice>
+        <reference name="sales.order.print.invoice">
+            <action method="addItemRender">
+                <type>aw_giftcard2</type>
+                <block>aw_giftcard2/order_item_renderer</block>
+                <template>sales/order/invoice/items/renderer/default.phtml</template>
+            </action>
+        </reference>
+        <reference name="invoice_totals">
+            <block type="aw_giftcard2/order_totals" name="aw_giftcard2.order.totals"/>
+        </reference>
+    </sales_order_printinvoice>
+    <sales_order_creditmemo>
+        <reference name="creditmemo_items">
+            <action method="addItemRender">
+                <type>aw_giftcard2</type>
+                <block>aw_giftcard/order_item_renderer</block>
+                <template>sales/order/creditmemo/items/renderer/default.phtml</template>
+            </action>
+        </reference>
+        <reference name="creditmemo_totals">
+            <block type="aw_giftcard2/order_totals" name="aw_giftcard2.order.totals"/>
+        </reference>
+    </sales_order_creditmemo>
+    <sales_order_printcreditmemo>
+        <reference name="sales.order.print.creditmemo">
+            <action method="addItemRender">
+                <type>aw_giftcard2</type>
+                <block>aw_giftcard/order_item_renderer</block>
+                <template>sales/order/creditmemo/items/renderer/default.phtml</template>
+            </action>
+        </reference>
+        <reference name="creditmemo_totals">
+            <block type="aw_giftcard2/order_totals" name="aw_giftcard2.order.totals"/>
+        </reference>
+    </sales_order_printcreditmemo>
+    <sales_order_shipment>
+        <reference name="shipment_items">
+            <action method="addItemRender">
+                <type>aw_giftcard2</type>
+                <block>aw_giftcard2/order_item_renderer</block>
+                <template>sales/order/shipment/items/renderer/default.phtml</template>
+            </action>
+        </reference>
+    </sales_order_shipment>
+    <sales_order_printshipment>
+        <reference name="sales.order.print.shipment">
+            <action method="addItemRender">
+                <type>aw_giftcard2</type>
+                <block>aw_giftcard2/order_item_renderer</block>
+                <template>sales/order/shipment/items/renderer/default.phtml</template>
+            </action>
+        </reference>
+    </sales_order_printshipment>
+    <sales_guest_view>
+        <reference name="order_items">
+            <action method="addItemRender">
+                <type>aw_giftcard2</type>
+                <block>aw_giftcard2/order_item_renderer</block>
+                <template>sales/order/items/renderer/default.phtml</template>
+            </action></reference>
+        <reference name="order_totals">
+            <block type="aw_giftcard2/order_totals" name="aw_giftcard2.order.totals"/>
+        </reference>
+    </sales_guest_view>
+    <sales_guest_invoice>
+        <reference name="invoice_items">
+            <action method="addItemRender">
+                <type>aw_giftcard2</type>
+                <block>aw_giftcard2/order_item_renderer</block>
+                <template>sales/order/invoice/items/renderer/default.phtml</template>
+            </action>
+        </reference>
+        <reference name="invoice_totals">
+            <block type="aw_giftcard2/order_totals" name="aw_giftcard2.order.totals"/>
+        </reference>
+    </sales_guest_invoice>
+    <sales_guest_shipment>
+        <reference name="shipment_items">
+            <action method="addItemRender">
+                <type>aw_giftcard2</type>
+                <block>aw_giftcard2/order_item_renderer</block>
+                <template>sales/order/shipment/items/renderer/default.phtml</template>
+            </action>
+        </reference>
+    </sales_guest_shipment>
+    <sales_guest_creditmemo>
+        <reference name="creditmemo_items">
+            <action method="addItemRender">
+                <type>aw_giftcard2</type>
+                <block>aw_giftcard2/order_item_renderer</block>
+                <template>sales/order/creditmemo/items/renderer/default.phtml</template>
+            </action>
+        </reference>
+        <reference name="creditmemo_totals">
+            <block type="aw_giftcard2/order_totals" name="aw_giftcard2.order.totals"/>
+        </reference>
+    </sales_guest_creditmemo>
+    <sales_guest_print>
+        <reference name="sales.order.print">
+            <action method="addItemRender">
+                <type>aw_giftcard2</type>
+                <block>aw_giftcard2/order_item_renderer</block>
+                <template>sales/order/items/renderer/default.phtml</template>
+            </action>
+        </reference>
+        <reference name="order_totals">
+            <block type="aw_giftcard2/order_totals" name="aw_giftcard2.order.totals"/>
+        </reference>
+    </sales_guest_print>
+    <sales_guest_printinvoice>
+        <reference name="sales.order.print.invoice">
+            <action method="addItemRender">
+                <type>aw_giftcard2</type>
+                <block>aw_giftcard2/order_item_renderer</block>
+                <template>sales/order/invoice/items/renderer/default.phtml</template>
+            </action>
+        </reference>
+        <reference name="invoice_totals">
+            <block type="aw_giftcard2/order_totals" name="aw_giftcard2.order.totals"/>
+        </reference>
+    </sales_guest_printinvoice>
+    <sales_guest_printshipment>
+        <reference name="sales.order.print.shipment">
+            <action method="addItemRender">
+                <type>aw_giftcard2</type>
+                <block>aw_giftcard2/order_item_renderer</block>
+                <template>sales/order/shipment/items/renderer/default.phtml</template>
+            </action>
+        </reference>
+    </sales_guest_printshipment>
+    <sales_guest_printcreditmemo>
+        <reference name="sales.order.print.creditmemo">
+            <action method="addItemRender">
+                <type>aw_giftcard2</type>
+                <block>aw_giftcard2/order_item_renderer</block>
+                <template>sales/order/creditmemo/items/renderer/default.phtml</template>
+            </action>
+        </reference>
+        <reference name="creditmemo_totals">
+            <block type="aw_giftcard2/order_totals" name="aw_giftcard2.order.totals"/>
+        </reference>
+    </sales_guest_printcreditmemo>
+    <sales_email_order_items>
+        <reference name="items">
+            <action method="addItemRender">
+                <type>aw_giftcard2</type>
+                <block>aw_giftcard2/order_item_renderer</block>
+                <template>email/order/items/order/default.phtml</template>
+            </action>
+        </reference>
+        <reference name="order_totals">
+            <block type="aw_giftcard2/order_totals" name="aw_giftcard2.order.totals"/>
+        </reference>
+    </sales_email_order_items>
+    <sales_email_order_invoice_items>
+        <reference name="items">
+            <action method="addItemRender">
+                <type>aw_giftcard2</type>
+                <block>aw_giftcard2/order_item_renderer</block>
+                <template>email/order/items/invoice/default.phtml</template>
+            </action>
+        </reference>
+        <reference name="invoice_totals">
+            <block type="aw_giftcard2/order_totals" name="aw_giftcard2.order.totals"/>
+        </reference>
+    </sales_email_order_invoice_items>
+    <sales_email_order_shipment_items>
+        <reference name="items">
+            <action method="addItemRender">
+                <type>aw_giftcard2</type>
+                <block>aw_giftcard2/order_item_renderer</block>
+                <template>email/order/items/shipment/default.phtml</template>
+            </action>
+        </reference>
+    </sales_email_order_shipment_items>
+    <sales_email_order_creditmemo_items>
+        <reference name="items">
+            <action method="addItemRender">
+                <type>aw_giftcard2</type>
+                <block>aw_giftcard2/order_item_renderer</block>
+                <template>email/order/items/creditmemo/default.phtml</template>
+            </action>
+        </reference>
+        <reference name="creditmemo_totals">
+            <block type="aw_giftcard2/order_totals" name="aw_giftcard2.order.totals"/>
+        </reference>
+    </sales_email_order_creditmemo_items>
+    <paypal_express_review>
+        <reference name="head">
+            <action method="addCss">
+                <name>aw_giftcard2/css/styles.css</name>
+            </action>
+        </reference>
+        <reference name="paypal.express.review.details">
+            <action method="addItemRender">
+                <type>aw_giftcard2</type>
+                <block>aw_giftcard2/checkout_cart_item_renderer</block>
+                <template>checkout/onepage/review/item.phtml</template>
+            </action>
+        </reference>
+    </paypal_express_review>
+    <paypal_express_review_details>
+        <reference name="root">
+            <action method="addItemRender">
+                <type>aw_giftcard2</type>
+                <block>aw_giftcard2/checkout_cart_item_renderer</block>
+                <template>checkout/onepage/review/item.phtml</template>
+            </action>
+        </reference>
+    </paypal_express_review_details>
+</layout>

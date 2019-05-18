@@ -1,0 +1,425 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="email_templates.xsd">
+    <template>
+        <template_code>Gift Card - Gary</template_code>
+        <template_subject>You've been sent a gift from {{var sender_name}}</template_subject>
+        <template_text><![CDATA[<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="margin: 0; color: #000;">
+    <table cellpadding="0" cellspacing="0" align="center" width="100%" border="0" bgcolor="#fed7d0" style="text-align: center; background: #dbe2e4 url('http://www.publicdesire.com/media/giftcard/gift-email-bg-2.png'); background-size: 100px 90px; background-position: 20px 0px;">
+        <tr>
+            <td width="10">
+                <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="20">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="http://www.publicdesire.com" target="_blank" style="text-decoration:none;">
+                    <img src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/logo.png" width="250" height="250" border="0">
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td width="10">
+                <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="20">
+            </td>
+        </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" align="center" width="100%" border="0" bgcolor="#e7eced" style="text-align: center; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 17.5px">
+        <tr>
+            <td width="10">
+                <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="10">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                YOU’VE BEEN SENT A GIFT VOUCHER!
+            </td>
+        </tr>
+        <tr>
+            <td width="10">
+                <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="10">
+            </td>
+        </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" align="center" width="100%" border="0" bgcolor="#fff" style="text-align: center; font-family: Arial, sans-serif;">
+        <tr>
+            <td width="10">
+                <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="45">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="text-align: center" cellpadding="0" cellspacing="0" align="center" width="100%" border="0">
+                    <tr>
+                        <td style="font-size: 25px; font-weight: bold; font-family: Arial, sans-serif;">
+                            What’s better than the gift of sassy stompers?!
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="10">
+                            <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="35">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 15px; font-family: Arial, sans-serif;">
+                            {{var sender_name}} has sent you a gift voucher worth {{var balance}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="10">
+                            <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="40">
+                        </td>
+                    </tr>
+                    {{if headline}}
+                    <tr>
+                        <td style="font-size: 20px; font-weight: bold; font-family: Arial, sans-serif;" >
+                            {{var headline|escape}}
+                        </td>
+                    </tr>
+                    {{/if}}
+                    {{if message}}
+                    <tr>
+                        <td style="font-size: 15px; font-family: Arial, sans-serif;">
+                            {{var message|escape|nl2br}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="10">
+                            <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="40">
+                        </td>
+                    </tr>
+                    {{/if}}
+                    <tr style="max-width: 370px; display: block; margin: auto">
+                        <td style="font-size: 20px; font-family: Arial, sans-serif; font-weight: bold; background: url('http://www.publicdesire.com/media/giftcard/title-bg.png') no-repeat center center; color: #fff; width: 100%; display: block; line-height: 35px;">
+                            Your Voucher Code: <span style="font-weight: normal">{{block type="core/template" template="aw_giftcard2/email/giftcard/codes.phtml" giftcards=$giftcards}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="10">
+                            <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="45">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 25px; font-family: Arial, sans-serif; font-weight: bold; text-decoration: underline">
+                            HOW TO REDEEM
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="10">
+                            <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="10">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 2px; font-size: 24.45px; font-family: Arial, sans-serif; font-weight: bold; line-height: 55px; background: url('http://www.publicdesire.com/media/giftcard/star-bg-1.png') no-repeat center center; background-size: contain;">
+                            1
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 15px; font-family: Arial, sans-serif; line-height: 20px;">
+                            Search the site for some steeze & add to your basket.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-right: 2px; font-size: 24.45px; font-family: Arial, sans-serif; font-weight: bold; line-height: 55px; background: url('http://www.publicdesire.com/media/giftcard/star-bg-2.png') no-repeat center center; background-size: contain;">
+                            2
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 15px; font-family: Arial, sans-serif; line-height: 20px;">
+                            Once you’re done shopping, go to the checkout.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 2px; font-size: 24.45px; font-family: Arial, sans-serif; font-weight: bold; line-height: 55px; background: url('http://www.publicdesire.com/media/giftcard/star-bg-1.png') no-repeat center center; background-size: contain;">
+                            3
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 15px; font-family: Arial, sans-serif; line-height: 20px;">
+                            Enter the above code into the voucher section to apply your money off!
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="10">
+                            <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="20">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 20px; font-family: Arial, sans-serif;">
+                            <a style="text-decoration: none; outline: none; cursor: pointer;" href="http://www.publicdesire.com">
+                                <input type="button" value="SHOP TO IT" style="cursor: pointer; outline: none; width: 290px; height: 55px; background: #ffb3a5 url('http://www.publicdesire.com/media/giftcard/mail-arrow.png') no-repeat center right 55px; border: none; font-size: 20px; font-family: Arial, sans-serif; color: #fff; padding-right: 50px">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="10">
+                            <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="40">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 15px; font-family: Arial, sans-serif;">
+                            *You have 365 days from the receipt of this email to redeem your voucher.
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td width="10">
+                <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="45">
+            </td>
+        </tr>
+    </table>
+
+    <table class="w100pc" cellpadding="0" cellspacing="0" align="center" width="100%" border="0" bgcolor="#ffb3a6">
+        <tr>
+            <td class="w10" width="1%">&nbsp;</td>
+            <td>
+                <table cellpadding="0" cellspacing="0" align="center" width="100%" border="0">
+                    <tr>
+                        <td height="10" style="font-size:1px; line-height:1px;"><img src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="1" height="40"></td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="font-family:arial; font-size:11px; font-weight:bold; color:#000000; text-align:center; letter-spacing:0px; text-decoration:none;"><a href="https://www.facebook.com/publicdesire" target="_blank"><img src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/facebook_logo.png" width="40"/></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://instagram.com/publicdesire/" target="_blank"><img src="http://i1076.photobucket.com/albums/w454/jennifercarroll1/instagramlogo_zpspwzaeiu1.png" alt="" width="40"/></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://twitter.com/PublicDesire" target="_blank"><img src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/twittersmall.png" alt="" width="40"/></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.pinterest.com/PublicDesire/" target="_blank"><img src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/pinterest_logo.png" alt="" width="40"/></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://publicdesireuk.tumblr.com/" target="_blank"><img src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/tumblr_logo.png" alt="" width="40"/></a>&nbsp;&nbsp;<a href="https://www.snapchat.com/add/publicdesire" target="_blank"><img src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/snapchat_logo.png" alt="" width="42"/></a></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="w10" width="1%">&nbsp;</td>
+        </tr>
+    </table>
+
+    <table class="w100pc" cellpadding="0" cellspacing="0" align="center" width="100%" border="0" bgcolor="#ffb3a6">
+        <tr>
+            <td class="w10" width="1%">&nbsp;</td>
+            <td>
+                <table cellpadding="0" cellspacing="0" align="center" width="100%" border="0">
+                    <tr>
+                        <td align="center" style="font-family:arial; font-size:11px; line-height:50px; font-weight:bold; color:#000000; text-align:center; letter-spacing:0px; text-decoration:none; "><a style="font-family:arial; font-size:11px; line-height:50px; font-weight:bold; color:#000000; text-align:center; letter-spacing:0px; text-decoration:none; " href="http://www.publicdesire.co.uk/delivery/"><u>DELIVERY &amp; RETURNS</u></a> &nbsp;&nbsp;&nbsp; <a style="font-family:arial; font-size:11px; line-height:50px; font-weight:bold; color:#000000; text-align:center; letter-spacing:0px; text-decoration:none; " href="http://www.publicdesire.co.uk/faqs/"><u>HELP & INFO</u></a></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="w10" width="1%">&nbsp;</td>
+        </tr>
+    </table>
+</body>
+</html>]]></template_text>
+    </template>
+    <template>
+        <template_code>Gift Card - Pink</template_code>
+        <template_subject>You've been sent a gift from {{var sender_name}}</template_subject>
+        <template_text><![CDATA[<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="margin: 0; color: #000;">
+    <table cellpadding="0" cellspacing="0" align="center" width="100%" border="0" bgcolor="#fed7d0" style="text-align: center; background: #fed7d0 url('http://www.publicdesire.com/media/giftcard/gift-email-bg-1.png'); background-size: 120px 98px; background-position: 20px 0px;">
+        <tr>
+            <td width="10">
+                <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="20">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="http://www.publicdesire.com" target="_blank" style="text-decoration:none;">
+                    <img src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/logo.png" width="250" height="250" border="0">
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td width="10">
+                <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="20">
+            </td>
+        </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" align="center" width="100%" border="0" bgcolor="#e7eced" style="text-align: center; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 17.5px">
+        <tr>
+            <td width="10">
+                <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="10">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                YOU’VE BEEN SENT A GIFT VOUCHER!
+            </td>
+        </tr>
+        <tr>
+            <td width="10">
+                <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="10">
+            </td>
+        </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" align="center" width="100%" border="0" bgcolor="#fff" style="text-align: center; font-family: Arial, sans-serif;">
+        <tr>
+            <td width="10">
+                <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="45">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="text-align: center" cellpadding="0" cellspacing="0" align="center" width="100%" border="0">
+                    <tr>
+                        <td style="font-size: 25px; font-weight: bold; font-family: Arial, sans-serif;">
+                            What’s better than the gift of sassy stompers?!
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="10">
+                            <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="35">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 15px; font-family: Arial, sans-serif;">
+                            {{var sender_name}} has sent you a gift voucher worth {{var balance}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="10">
+                            <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="40">
+                        </td>
+                    </tr>
+                    {{if headline}}
+                    <tr>
+                        <td style="font-size: 20px; font-weight: bold; font-family: Arial, sans-serif;" >
+                            {{var headline|escape}}
+                        </td>
+                    </tr>
+                    {{/if}}
+                    {{if message}}
+                    <tr>
+                        <td style="font-size: 15px; font-family: Arial, sans-serif;">
+                            {{var message|escape|nl2br}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="10">
+                            <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="40">
+                        </td>
+                    </tr>
+                    {{/if}}
+                    <tr style="max-width: 370px; display: block; margin: auto">
+                        <td style="font-size: 20px; font-family: Arial, sans-serif; font-weight: bold; background: url('http://www.publicdesire.com/media/giftcard/title-bg.png') no-repeat center center; color: #fff; width: 100%; display: block; line-height: 35px;">
+                            Your Voucher Code: <span style="font-weight: normal">{{block type="core/template" template="aw_giftcard2/email/giftcard/codes.phtml" giftcards=$giftcards}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="10">
+                            <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="45">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 25px; font-family: Arial, sans-serif; font-weight: bold; text-decoration: underline">
+                            HOW TO REDEEM
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="10">
+                            <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="10">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 2px; font-size: 24.45px; font-family: Arial, sans-serif; font-weight: bold; line-height: 55px; background: url('http://www.publicdesire.com/media/giftcard/star-bg-1.png') no-repeat center center; background-size: contain;">
+                            1
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 15px; font-family: Arial, sans-serif; line-height: 20px;">
+                            Search the site for some steeze & add to your basket.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-right: 2px; font-size: 24.45px; font-family: Arial, sans-serif; font-weight: bold; line-height: 55px; background: url('http://www.publicdesire.com/media/giftcard/star-bg-2.png') no-repeat center center; background-size: contain;">
+                            2
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 15px; font-family: Arial, sans-serif; line-height: 20px;">
+                            Once you’re done shopping, go to the checkout.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 2px; font-size: 24.45px; font-family: Arial, sans-serif; font-weight: bold; line-height: 55px; background: url('http://www.publicdesire.com/media/giftcard/star-bg-1.png') no-repeat center center; background-size: contain;">
+                            3
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 15px; font-family: Arial, sans-serif; line-height: 20px;">
+                            Enter the above code into the voucher section to apply your money off!
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="10">
+                            <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="20">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 20px; font-family: Arial, sans-serif;">
+                            <a style="text-decoration: none; outline: none; cursor: pointer;" href="http://www.publicdesire.com">
+                                <input type="button" value="SHOP TO IT" style="cursor: pointer; outline: none; width: 290px; height: 55px; background: #ffb3a5 url('http://www.publicdesire.com/media/giftcard/mail-arrow.png') no-repeat center right 55px; border: none; font-size: 20px; font-family: Arial, sans-serif; color: #fff; padding-right: 50px">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="10">
+                            <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="40">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 15px; font-family: Arial, sans-serif;">
+                            *You have 365 days from the receipt of this email to redeem your voucher.
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td width="10">
+                <img class="h" src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="10" height="45">
+            </td>
+        </tr>
+    </table>
+
+    <table class="w100pc" cellpadding="0" cellspacing="0" align="center" width="100%" border="0" bgcolor="#ffb3a6">
+        <tr>
+            <td class="w10" width="1%">&nbsp;</td>
+            <td>
+                <table cellpadding="0" cellspacing="0" align="center" width="100%" border="0">
+                    <tr>
+                        <td height="10" style="font-size:1px; line-height:1px;"><img src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/spacer.gif" style="display:block" border="0" alt="" title="" width="1" height="40"></td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="font-family:arial; font-size:11px; font-weight:bold; color:#000000; text-align:center; letter-spacing:0px; text-decoration:none;"><a href="https://www.facebook.com/publicdesire" target="_blank"><img src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/facebook_logo.png" width="40"/></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://instagram.com/publicdesire/" target="_blank"><img src="http://i1076.photobucket.com/albums/w454/jennifercarroll1/instagramlogo_zpspwzaeiu1.png" alt="" width="40"/></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://twitter.com/PublicDesire" target="_blank"><img src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/twittersmall.png" alt="" width="40"/></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.pinterest.com/PublicDesire/" target="_blank"><img src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/pinterest_logo.png" alt="" width="40"/></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://publicdesireuk.tumblr.com/" target="_blank"><img src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/tumblr_logo.png" alt="" width="40"/></a>&nbsp;&nbsp;<a href="https://www.snapchat.com/add/publicdesire" target="_blank"><img src="http://www.publicdesire.co.uk/media/wysiwyg/creative/email/trans/general/snapchat_logo.png" alt="" width="42"/></a></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="w10" width="1%">&nbsp;</td>
+        </tr>
+    </table>
+
+    <table class="w100pc" cellpadding="0" cellspacing="0" align="center" width="100%" border="0" bgcolor="#ffb3a6">
+        <tr>
+            <td class="w10" width="1%">&nbsp;</td>
+            <td>
+                <table cellpadding="0" cellspacing="0" align="center" width="100%" border="0">
+                    <tr>
+                        <td align="center" style="font-family:arial; font-size:11px; line-height:50px; font-weight:bold; color:#000000; text-align:center; letter-spacing:0px; text-decoration:none; "><a style="font-family:arial; font-size:11px; line-height:50px; font-weight:bold; color:#000000; text-align:center; letter-spacing:0px; text-decoration:none; " href="http://www.publicdesire.co.uk/delivery/"><u>DELIVERY &amp; RETURNS</u></a> &nbsp;&nbsp;&nbsp; <a style="font-family:arial; font-size:11px; line-height:50px; font-weight:bold; color:#000000; text-align:center; letter-spacing:0px; text-decoration:none; " href="http://www.publicdesire.co.uk/faqs/"><u>HELP & INFO</u></a></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="w10" width="1%">&nbsp;</td>
+        </tr>
+    </table>
+</body>
+</html>]]></template_text>
+    </template>
+</config>
