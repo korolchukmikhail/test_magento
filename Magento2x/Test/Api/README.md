@@ -8,10 +8,3 @@ Back-office should allow to configure the extension settings:
 specify the period of day, when the discount is applied (for example, from 9:30 till 17:00),
 configure the URL of API,
 enable/disable applying of the discount.
-
-Bonus:
-add functional/unit tests
-
-Delivery:
-provide access to the source code in Git repository
-provide a demo URL & credentials for testing
