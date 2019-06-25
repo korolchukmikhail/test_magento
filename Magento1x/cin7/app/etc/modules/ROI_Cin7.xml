@@ -1,0 +1,8 @@
+<config>
+  <modules>
+    <ROI_Cin7>
+      <active>true</active>
+      <codePool>local</codePool>
+    </ROI_Cin7>
+  </modules>
+</config>

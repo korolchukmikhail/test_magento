@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <sections>
+        <roi_cin7config translate="label" module="roi_cin7">
+            <label>Cin7 Configuration</label>
+            <tab>roi</tab>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label" module="roi_cin7">
+                    <label>General Config API</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <enabled>
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <base_url translate="label">
+                            <label>Base URL</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </base_url>
+                        <username translate="label">
+                            <label>Username API</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </username>
+                        <password translate="label">
+                            <label>Password API</label>
+                            <frontend_type>password</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </password>
+                        <rows translate="label">
+                            <label>Rows Total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Rows per page for a request (default: 250, maximum: 250)</comment>
+                        </rows>
+                    </fields>
+                </general>
+
+                <attribute translate="label" module="roi_cin7">
+                    <label>Attribute Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1001</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <group>
+                            <label>Product Attribute Group(s)</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>roi_cin7/source_system_config_attribute_group</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Select Magento Attribute Group(s) for Cin7 options</comment>
+                        </group>
+                        <map translate="label">
+                            <label>Attribute Map</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>roi_cin7/adminhtml_system_config_attributeMap</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized</backend_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>You have to mapped Cin7 options on Magento attributes before enable this extension for correct the cron tasks works.</comment>
+                        </map>
+                    </fields>
+                </attribute>
+
+                <cron translate="label" module="roi_cin7">
+                    <label>Cron configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1001</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <import_product translate="label">
+                            <label>Products update rate</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>How often products will be imported (default twice per day)</comment>
+                        </import_product>
+                        <import_product_count translate="label">
+                            <label>The number of updated products</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The number updated of products at time by cron task (default 0 is all)</comment>
+                        </import_product_count>
+                        <import_product_now_ids translate="label">
+                            <label>Import only these products</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>You can enter IDs products for import manually(comma is separator), use for test</comment>
+                        </import_product_now_ids>
+                        <import_product_now>
+                            <label>Import products</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>roi_cin7/adminhtml_system_config_product</frontend_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>You can update products manually</comment>
+                        </import_product_now>
+
+                        <import_attribute translate="label">
+                            <label>Attributes update rate</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>New options from Cin7 have to be associated with attributes in Magento</comment>
+                        </import_attribute>
+                        <import_attributes_now>
+                            <label>Import attributes</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>roi_cin7/adminhtml_system_config_attribute</frontend_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>You can update attributes manually, new attributes will be created and assigned to selected group(s)</comment>
+                        </import_attributes_now>
+
+                        <import_category translate="label">
+                            <label>Categories update rate</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>New categories will be created</comment>
+                        </import_category>
+                        <import_category_now>
+                            <label>Import categories</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>roi_cin7/adminhtml_system_config_category</frontend_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>You can update categories manually</comment>
+                        </import_category_now>
+                    </fields>
+                </cron>
+            </groups>
+        </roi_cin7config>
+    </sections>
+</config>

@@ -1,0 +1,41 @@
+<?php
+/** @var $this ROI_Cin7_Block_Adminhtml_System_Config_AttributeMap */
+$element = $this->getElement();
+$attributes = $this->getAttributes();
+
+if (!$this->_options) {
+    echo $this->__('Attribute map is empty, you can update it manually or wait for the cron to work');
+    return;
+}
+?>
+
+<div class="roiSystemConfigAttributeMap">
+    <table>
+        <tbody>
+        <?php foreach ($this->_options as $option): ?>
+            <tr>
+                <td style="width: 50%;padding: 5px 0">
+                    <span><?php echo $option['name'] ?></span>
+                </td>
+                <td>
+                    <input type="hidden" name="<?php echo $element->getName() ?>[<?php echo $option['code'] ?>][name]" value="<?php echo $option['name'] ?>">
+                    <?php if ($attributes): ?>
+                        <select name="<?php echo $element->getName() ?>[<?php echo $option['code'] ?>][value]" class="roiSystemConfig__select">'
+                            <option value=""><?php echo $this->__('Please select ...') ?></option>
+                            <?php foreach ($attributes as $attribute): ?>
+                                <option value="<?php echo $attribute['code'] ?>" <?php echo($option['value'] === $attribute['code'] ? 'selected' : '') ?>><?php echo $this->__($attribute['name']) ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    <?php endif; ?>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+
+<style>
+    #row_roi_cin7config_attribute_map td.value{
+        min-width: 450px;
+    }
+</style>

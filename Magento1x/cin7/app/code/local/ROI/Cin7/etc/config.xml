@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+    <modules>
+        <ROI_Cin7>
+            <version>0.1.0</version>
+        </ROI_Cin7>
+    </modules>
+    <global>
+        <helpers>
+            <roi_cin7>
+                <class>ROI_Cin7_Helper</class>
+            </roi_cin7>
+        </helpers>
+
+        <models>
+            <roi_cin7>
+                <class>ROI_Cin7_Model</class>
+                <resourceModel>roi_cin7_resource</resourceModel>
+            </roi_cin7>
+            <roi_cin7_resource>
+                <class>ROI_Cin7_Model_Resource</class>
+                <entities>
+                    <category>
+                        <table>roi_cin7_category</table>
+                    </category>
+                </entities>
+            </roi_cin7_resource>
+        </models>
+
+        <blocks>
+            <roi_cin7>
+                <class>ROI_Cin7_Block</class>
+            </roi_cin7>
+        </blocks>
+
+        <resources>
+            <roi_cin7_setup>
+                <setup>
+                    <module>ROI_Cin7</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </roi_cin7_setup>
+            <roi_cin7_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </roi_cin7_write>
+            <roi_cin7_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </roi_cin7_read>
+        </resources>
+    </global>
+
+    <admin>
+        <routers>
+            <roi_cin7>
+                <use>admin</use>
+                <args>
+                    <module>ROI_Cin7</module>
+                    <frontName>roicin7</frontName>
+                </args>
+            </roi_cin7>
+        </routers>
+    </admin>
+
+    <crontab>
+        <jobs>
+            <roi_cin7config_getproducts>
+                <schedule>
+                    <config_path>roi_cin7config/cron/import_product</config_path>
+                </schedule>
+                <run>
+                    <model>roi_cin7/cron::getProducts</model>
+                </run>
+            </roi_cin7config_getproducts>
+            <roi_cin7config_getcategories>
+                <schedule>
+                    <config_path>roi_cin7config/cron/import_category</config_path>
+                </schedule>
+                <run>
+                    <model>roi_cin7/cron::getCategories</model>
+                </run>
+            </roi_cin7config_getcategories>
+            <roi_cin7config_getnewattributes>
+                <schedule>
+                    <config_path>roi_cin7config/cron/import_attribute</config_path>
+                </schedule>
+                <run>
+                    <model>roi_cin7/cron::getProducts</model>
+                </run>
+            </roi_cin7config_getnewattributes>
+        </jobs>
+    </crontab>
+
+    <default>
+        <roi_cin7config>
+            <general>
+                <enabled>0</enabled>
+                <base_url><![CDATA[https://api.cin7.com/api/v1/]]></base_url>
+                <rows>250</rows>
+            </general>
+            <cron>
+                <import_product>0 */12 * * *</import_product>
+                <import_attribute>0 3 * * *</import_attribute>
+                <import_category>0 5 * * *</import_category>
+                <import_product_count>0</import_product_count>
+            </cron>
+        </roi_cin7config>
+    </default>
+</config>
