@@ -1,0 +1,7 @@
+<?php /** @var $block \My\Status\Block\Status */ ?>
+
+<form action="<?= $block->getFormAction() ?>" method="post">
+    <?php echo $this->getBlockHtml( 'formkey' ) ?>
+    <input name="status" type="text" value="<?= $block->getMyStatus() ?>">
+    <input type="submit" value="Save">
+</form>

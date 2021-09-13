@@ -1,0 +1,23 @@
+{
+    "name": "my/status",
+    "description": "Test module. Show a customer status",
+    "type": "magento2-module",
+    "license": [
+        "Apache-2.0"
+    ],
+    "version": "0.1.0",
+    "require": {
+        "php": "~7.3.0||~7.4.0",
+        "magento/framework": "*",
+        "magento/module-customer": "*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "My\\Status\\": ""
+        }
+    }
+}
+
