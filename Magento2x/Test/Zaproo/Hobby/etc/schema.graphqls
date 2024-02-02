@@ -1,0 +1,5 @@
+type Mutation {
+  hobby(input: String!): Boolean
+  @resolver(class: "\\Zaproo\\Hobby\\Model\\Resolver\\HobbyManagment")
+  @doc(description:"Change Hobby for logged in customer")
+}

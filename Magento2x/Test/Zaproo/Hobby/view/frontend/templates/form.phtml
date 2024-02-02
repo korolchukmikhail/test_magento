@@ -1,0 +1,19 @@
+<?php
+/* @var $block \Zaproo\Hobby\Block\Customer\Hobby */
+
+$customerHobby = $block->getHobby();
+?>
+<form method="post" action="<?= $block->getFormAction() ?>">
+    <?php echo $this->getBlockHtml('formkey') ?>
+    <label style="padding: 10px 0; margin: 10px 0; display: block;">
+        Hobby:
+        <select name="hobby">
+            <? foreach ($block->getHobbies() as $id => $value): ?>
+                <option value="<?= $id ?>" <?= ($id == $customerHobby ? 'selected="true"' : '') ?>>
+                    <?= $value ?>
+                </option>
+            <? endforeach; ?>
+        </select>
+    </label>
+    <input type="submit" name="save">
+</form>
