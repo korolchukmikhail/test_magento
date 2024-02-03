@@ -55,16 +55,15 @@ class HobbyAttribute implements DataPatchInterface, PatchVersionInterface
                 'system' => false,
                 'validate_rules' => '[]',
                 'position' => 110,
-                'option' => ['values' => ['Yoga', 'Traveling', 'Hiking']],
-                'attribute_set_id' => $attributeSetId,
-                'attribute_group_id' => $attributeGroupId,
-                'used_in_forms' => [
-                    'adminhtml_customer',
-                    'customer_account_edit',
-                    'customer_account_create'
-                ]
+                'option' => ['values' => ['Yoga', 'Traveling', 'Hiking']]
             ]
         );
+
+        $attribute = $customerSetup->getEavConfig()->getAttribute(Customer::ENTITY, $attributeCode);
+        $attribute->setData('used_in_forms', ['adminhtml_customer', 'customer_account_edit']);
+        $attribute->setData('attribute_set_id', $attributeSetId);
+        $attribute->setData('attribute_group_id', $attributeGroupId);
+        $this->resourceModelAttribute->save($attribute);
     }
 
     public static function getDependencies()
