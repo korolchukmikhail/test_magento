@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page>
+    <body>
+        <referenceBlock name="customer_account_navigation">
+            <block class="Magento\Framework\View\Element\Html\Link\Current" name="customer-account-navigation-hobby2">
+                <arguments>
+                    <argument name="path" xsi:type="string">customer/hobby/edit</argument>
+                    <argument name="label" xsi:type="string" translate="true">Edit Hobby 2</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

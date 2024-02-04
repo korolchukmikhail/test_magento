@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page>
+    <update handle="customer_account"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Zaproo\Hobby2\Block\Customer\Hobby"
+                   name="customer.account.hobby2"
+                   template="Zaproo_Hobby2::form.phtml" cacheable="false"/>
+        </referenceContainer>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">Edit Hobby 2</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

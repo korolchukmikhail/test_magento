@@ -1,0 +1,21 @@
+{
+    "name": "zaproo/test-hobby2",
+    "description": "N/A",
+    "type": "magento2-module",
+    "license": [],
+    "config": {
+        "sort-packages": true
+    },
+    "version": "1.0.1",
+    "require": {
+        "php": "~8.2.0"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Zaproo\\Hobby2\\": ""
+        }
+    }
+}

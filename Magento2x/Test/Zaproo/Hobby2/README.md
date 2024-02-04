@@ -1,0 +1,1 @@
+Solution via KnockoutJs and CustomerData Sections

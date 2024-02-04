@@ -1,0 +1,25 @@
+<?php
+/* @var $block \Zaproo\Hobby2\Block\Customer\Hobby */
+?>
+ <script type="text/x-magento-init">
+{
+    "#customerHobby": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "hobbies": {
+                    "component": "Zaproo_Hobby2/js/form",
+                    "options": <?= json_encode($block->getHobbies()) ?>,
+                    "selectedOption": <?= $block->getUserHobby() ?>,
+                    "url": "<?= $block->getFormAction() ?>"
+                }
+            }
+        }
+    }
+}
+</script>
+<form id="customerHobby" method="post" data-bind='scope: "hobbies"'>
+    <label for="hobbySelect">Select a Hobby:</label>
+    <select id="hobbySelect" style="width: auto; display: block; margin: 20px 0;" name="hobby"
+        data-bind="options: selectOptions, optionsText: 'label', optionsValue: 'value', value: selected"></select>
+    <button type="submit" data-bind="click: submitForm">Submit</button>
+</form>
