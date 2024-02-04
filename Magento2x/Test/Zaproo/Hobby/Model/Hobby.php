@@ -86,7 +86,7 @@ class Hobby
             $customer = $this->customerSession->getCustomer();
             $attributeValue = (int) $customer->getData(self::ATTRCODE);
             $attribute = $this->eavConfig->getAttribute(Customer::ENTITY, self::ATTRCODE);
-            $hobby = $attribute->getSource()->getOptionText($attributeValue);
+            $hobby = (string) $attribute->getSource()->getOptionText($attributeValue);
         }
 
         return $hobby;
