@@ -4,7 +4,6 @@
     <module name="Zaproo_Hobby2">
         <sequence>
             <module name="Magento_Customer" />
-            <module name="Zaproo_Hobby" />
         </sequence>
     </module>
 </config>
